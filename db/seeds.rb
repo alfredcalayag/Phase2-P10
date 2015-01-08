@@ -1,7 +1,7 @@
-# User.create(
-#   username: 'badboy',
-#   password: '123',
-#   phone_number: 555-555-5551 )
+User.create(
+  username: 'badboy',
+  password: '123',
+  phone_number: 555-555-5551 )
 
 User.create(
   username: 'rapa',
@@ -9,7 +9,7 @@ User.create(
   phone_number: 555-555-5551 )
 
 Trip.create(
-  user_id: 2,
+  user_id: 1,
   trip_name: 'SF to LA',
   origin: 'San Francisco',
   destination: 'Los Angeles',
