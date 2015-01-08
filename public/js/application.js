@@ -114,7 +114,7 @@ var getMap = function(myOrigin, myDestination){
 var ajaxSendRequest = function(timeWithoutTraffic, timeWithTraffic, origin, destination){
     console.log("Origin: " + origin + ", Destination: " + destination)
     $.ajax({
-    url: "/test",
+    url: "/users/:user_id/sms",
     type: "POST",
     data: "time=" + timeWithoutTraffic + "&timeWithTraffic=" + timeWithTraffic
         + "&origin=" + origin

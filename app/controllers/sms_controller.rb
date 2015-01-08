@@ -1,8 +1,10 @@
 # SMS Controller
 
 # Compile message, send sms, and return traffic data
-post '/users/:user_id?=sms' do
+post '/users/:user_id/sms' do
   # TODO: Refactor into helper methods to filter and convert time
+
+  # TODO: Keep track of how many times the user has queried.  Keep track of the user's trip history details.
 
   phone_number = ENV['MY_PHONE']
   time = params[:time]
