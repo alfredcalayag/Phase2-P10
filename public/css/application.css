@@ -154,10 +154,35 @@ input[type="submit"]{
 /*=========View Trips===============*/
 
 .trip_details{
-  display: block;
-  width: 80%;
-  background: black;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 5px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 250px;
+  min-height: 400px;
+  background: #AA6E39;
+
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 20px #000;
+
+  transition-duration: 0.1s;
+  transition-timing-function: ease;
 }
+
+.trip_details:hover{
+  transition-property: ;
+  transform:transl;
+  }
 
 .trip_details h3{
   text-align: center;
