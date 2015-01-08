@@ -1,11 +1,14 @@
+# Login Page
 get '/' do
   erb :login
 end
 
-
-get '/users' do
-  @trips = Trip.all
-  erb :index
+# View user's trips
+get '/users/:user_id' do
+  @user_id = params[:user_id].to_i
+  @trips = Trip.where(user_id: @user_id)
+  # p "#{@trips.all}"
+  erb :"users/index"
 end
 
 
