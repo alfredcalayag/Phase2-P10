@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+var darkenPage = function(){
+    $('#dark_page').css("display", "block");
+}
+
+var lightenPage = function(){
+    $('#dark_page').css("display", "none");
+}
 
 var $sendButton = $('.trip_details')
 $sendButton.on("click", "input[type='button']", function(event){
@@ -9,9 +16,28 @@ $sendButton.on("click", "input[type='button']", function(event){
     console.log(origin)
     console.log(destination)
 
-    getMap(origin, destination);
+
+    var revealMap = function(){
+        // $('.map_container').css("z-index", "99999")
+
+        $('.map_container').css("opacity", "1.0")
+        $('.map_container').css("display", "block")
+    }
+
+    var dfd = $.Deferred();
+    dfd.done( getMap(origin, destination) )
+    .done( darkenPage() )
+    .done( revealMap() )
+
+    // getMap(origin, destination);
 })
 
+
+var $mapRemove = $('.map_container')
+$mapRemove.on("click", function(){
+    $(this).css("display", "none");
+    lightenPage()
+})
 
 
 var getMap = function(myOrigin, myDestination){

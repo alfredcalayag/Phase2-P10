@@ -1,5 +1,6 @@
 
 
+
 body{
   display:block;
   min-height: 100px;
@@ -167,7 +168,7 @@ input[type="submit"]{
 
   width: 250px;
   min-height: 400px;
-  background: #AA6E39;
+  background: #aa6e39;
 
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
@@ -176,7 +177,7 @@ input[type="submit"]{
   box-shadow: 5px 5px 20px #000;
 
   transition-duration: 0.1s;
-  transition-timing-function: ease;
+  transition-timing-function: ease-in;
 }
 
 .trip_details:hover{
@@ -185,7 +186,9 @@ input[type="submit"]{
 
   transition-property: height, width, background;
   transform:translate(5px, 5px);
-  }
+}
+
+
 
 .trip_details h3{
   text-align: center;
@@ -259,7 +262,15 @@ input[type="submit"]{
 }
 
 .map_container {
-  display: block;
+
+  /*display: block;*/
+  display: none;
+  position: fixed;
+  z-index: 9999;
+
+  top: 20%;
+  left: 20%;
+
   margin-left: auto;
   margin-right: auto;
   /*padding: 30px;*/
@@ -273,7 +284,7 @@ input[type="submit"]{
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  box-shadow: 0 0 30px #000;
+  box-shadow: 0 0 40px #000;
 
   transition-timing-function: ease;
   transition-duration: 1s;
@@ -285,6 +296,11 @@ input[type="submit"]{
 }
 
 
+.map_container:active{
+  transition-property: display;
+  display: none;
+}
+
 #map {
   display: block;
   margin-left: auto;
@@ -293,4 +309,16 @@ input[type="submit"]{
 
   width: 410px;
   height: 410px;
+}
+
+/* Transitions and Animations*/
+#dark_page {
+  display:none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background: black;
+  opacity: 0.7;
 }

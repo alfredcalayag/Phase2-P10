@@ -2,13 +2,6 @@ get '/' do
   erb :login
 end
 
-get '/getkey' do
-  key = ENV['MAPQUEST_KEY']
-  myUrl = "http://www.mapquestapi.com/sdk/js/v7.2.s/mqa.toolkit.js?key=" + key
-  p myUrl
-  content_type :json
-  {scriptUrl: myUrl}.to_json
-end
 
 get '/users' do
   @trips = Trip.all
@@ -60,4 +53,12 @@ post '/test' do
 
 end
 
+# Consider scrapping:
 
+# get '/getkey' do
+#   key = ENV['MAPQUEST_KEY']
+#   myUrl = "http://www.mapquestapi.com/sdk/js/v7.2.s/mqa.toolkit.js?key=" + key
+#   p myUrl
+#   content_type :json
+#   {scriptUrl: myUrl}.to_json
+# end
