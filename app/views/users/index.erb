@@ -1,9 +1,13 @@
 
-<!-- view all trips -->
-
-
+<!-- view all trips of a user -->
 
 <main>
+  <div id="welcome_message">
+    <h1>Welcome <%= @user.username %> !</h1>
+  </div>
+  <div id="user_id"><%= @user_id %></div>
+  <div id="user_name"><%= @user.username %></div>
+
   <% if @trips %>
   <h1> All Trips </h2>
     <% @trips.each do |trip| %>

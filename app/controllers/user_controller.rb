@@ -6,6 +6,8 @@ end
 # View user's trips
 get '/users/:user_id' do
   @user_id = params[:user_id].to_i
+  @user = User.find(@user_id)
+
   @trips = Trip.where(user_id: @user_id)
   # p "#{@trips.all}"
   erb :"users/index"

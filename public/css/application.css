@@ -200,6 +200,12 @@ input[type="submit"]{
   margin: 10px auto;
 }
 
+/*===== USER INFO ==============*/
+
+#user_id, #user_name{
+  display:none;
+}
+
 
  /*Mobile Devices ==============
 

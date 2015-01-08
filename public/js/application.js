@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+var userId = $('#user_id').text();
+var userName = $('#user_name').text();
+console.log( "userId: " + userId + "username: " + userName)
+
 var darkenPage = function(){
     $('#dark_page').css("display", "block");
 }
@@ -113,8 +117,9 @@ var getMap = function(myOrigin, myDestination){
 
 var ajaxSendRequest = function(timeWithoutTraffic, timeWithTraffic, origin, destination){
     console.log("Origin: " + origin + ", Destination: " + destination)
+
     $.ajax({
-    url: "/users/:user_id/sms",
+    url: "/users/"+ userId + "/sms",
     type: "POST",
     data: "time=" + timeWithoutTraffic + "&timeWithTraffic=" + timeWithTraffic
         + "&origin=" + origin
