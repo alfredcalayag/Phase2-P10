@@ -1,0 +1,132 @@
+<html>
+    <head>
+
+        <style type="text/css">
+            /* This css classname is not styled by the toolkit, and is intentionally
+            left for the developer to customize window content. */
+            .mqabasicwnd-content {
+                font-size: 13px;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+
+            table, th, td { border: 1px solid #000; }
+
+            table { border-collapse: collapse; }
+        </style>
+
+  </head>
+
+    <body>
+        <h1> BEHOLD, MY MAP </h1>
+
+        <div id="map" style="width:750px; height:280px; margin:10px;"></div>
+        <div id="route-results" style="margin:10px;"></div>
+
+        <form action="/send" method="post">
+          <button type="submit">Send Text</button>
+        </form>
+
+    </body>
+
+        <script type="text/javascript" src="http://www.mapquestapi.com/sdk/js/v7.2.s/mqa.toolkit.js?key=Fmjtd%7Cluurn10y29%2C72%3Do5-9wywgf "></script>
+
+        <script type="text/javascript">
+
+            MQA.EventUtil.observe(window, 'load', function() {
+                var options = {
+                    elt: document.getElementById('map'),            // ID of map element on page
+                    zoom: 7,                                        // initial zoom level of the map
+                    // latLng: { lat: 40.335573, lng: -75.927219 }     // center of map in latitude/longitude
+                };
+
+                // construct an instance of MQA.TileMap with the options object
+                window.map = new MQA.TileMap(options);
+
+                // download the modules
+                MQA.withModule('new-route', 'smallzoom', 'mousewheel', function() {
+
+                    var opt = {
+                        request: {
+                            locations: [ 'San Bruno CA', 'San Jose, CA' ],
+
+                            options: {
+                                avoids: [],
+                                avoidTimedConditions: false,
+                                doReverseGeocode: false,
+                                shapeFormat: 'raw',
+                                generalize: 0,
+                                routeType: 'fastest',
+                                timeType: 1,
+                                //useTraffic: true,
+                                locale: 'en_US',
+                                unit: 'm',
+                                enhancedNarrative: false,
+                                drivingStyle: 2,
+                                highwayEfficiency: 21.0
+                            }
+                        },
+
+                        display: {
+                            color: '#800000',
+                            borderWidth: 10
+                        },
+
+                        // on success, display the route narrative
+                        success: function displayNarrative(data) {
+                            if (data.route) {
+                                var legs = data.route.legs,
+                                    html = '',
+                                    i = 0,
+                                    j = 0,
+                                    trek,
+                                    maneuver;
+
+                                timeWithTraffic = (Math.ceil(parseInt(data.route.realTime) / 60)).toString();
+                                timeWithoutTraffic = (Math.ceil(parseInt(data.route.time) / 60)).toString();
+
+
+
+                                html += '<h2>Time w/out Traffic:' + timeWithoutTraffic + ' minutes</h2>';
+                                html += '<h2>Time w/ Traffic:' + timeWithTraffic + ' minutes</h2>';
+                                html += '<table><tbody>';
+
+                                for (; i<legs.length; i++) {
+                                    for (j=0; j<legs[i].maneuvers.length; j++) {
+                                        maneuver = legs[i].maneuvers[j];
+                                        html += '<tr>';
+                                        html += '<td>';
+
+                                        if (maneuver.iconUrl) {
+                                            html += '<img src="' + maneuver.iconUrl + '" />  ';
+                                        }
+
+                                        for (k=0; k<maneuver.signs.length; k++) {
+                                            var sign = maneuver.signs[k];
+
+                                            if (sign && sign.url) {
+                                                html += '<img src="' + sign.url + '" />  ';
+                                            }
+                                        }
+
+                                        html += '</td><td>' + maneuver.narrative + '</td>';
+                                        html += '</tr>';
+                                    }
+                                }
+
+                                html += '</tbody></table>';
+                                document.getElementById('route-results').innerHTML = html;
+                            }
+                        }
+                    }
+
+                    map.addRoute(opt);
+
+                    map.addControl(new MQA.SmallZoom());
+                    map.enableMouseWheelZoom();
+                });
+            });
+
+        </script>
+
+</html>

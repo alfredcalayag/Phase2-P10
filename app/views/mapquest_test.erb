@@ -1,0 +1,44 @@
+<html>
+    <head>
+
+        <style type="text/css">
+            /* This css classname is not styled by the toolkit, and is intentionally
+            left for the developer to customize window content. */
+            .mqabasicwnd-content {
+                font-size: 13px;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+
+            table, th, td { border: 1px solid #000; }
+
+            table { border-collapse: collapse; }
+        </style>
+
+  </head>
+
+    <body>
+        <h1> BEHOLD, MY MAP </h1>
+
+        <div id="map" style="width:750px; height:280px; margin:10px;"></div>
+        <div id="route-results" style="margin:10px;"></div>
+
+
+        <form action="/test" method="post">
+          <h3>Text your traffic info now</h3>
+
+          <label>Phone Number:</label>
+          <input type="text" name="phone" />
+
+          <input type="hidden" name="message" value="hey ya!" />
+
+          <button type="submit">Send Text</button>
+        </form>
+
+    </body>
+
+<!--
+        <script type="text/javascript" src="http://www.mapquestapi.com/sdk/js/v7.2.s/mqa.toolkit.js?key=Fmjtd%7Cluurn10y29%2C72%3Do5-9wywgf "></script>
+-->
+
+</html>

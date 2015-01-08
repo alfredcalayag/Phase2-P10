@@ -1,0 +1,46 @@
+
+<!-- view all trips -->
+
+<main>
+  <% if @trips %>
+  <h1> All Trips </h2>
+    <% @trips.each do |trip| %>
+      <div class="trip_details">
+        <h3> Trip Name: <%= trip.trip_name %> </h3>
+        <h4> Origin: <span class="origin"><%= trip.origin %></span></h4>
+        <h4> Destination: <span class="destination"><%= trip.destination %></span></h4>
+        <h4> Departure Date & Time: <%= trip.depart_time %> </h4>
+        <h4> Text will be sent at: <%= trip.reminder_time %> </h4>
+        <h4> Reminder set to: <%= trip.reminder_minutes %> minutes prior to departure </h4>
+        <input type="button" value="Click to send text now">
+      </div>
+    <% end %>
+  <% else %>
+    <h1> Something went wrong </h1>
+  <% end %>
+</main>
+
+
+<!-- LOAD MAPQUEST API <script src=mapquestKey></script> -->
+
+  <script src="http://www.mapquestapi.com/sdk/js/v7.2.s/mqa.toolkit.js?key=Fmjtd%7Cluurn10y29%2C72%3Do5-9wywgf"></script>
+
+  <script src="/js/initialize_mapquest_sdk.js"></script>
+
+<!-- Generate Map and Travel Time -->
+
+
+  <style type="text/css">
+      /* This css classname is not styled by the toolkit, and is intentionally
+      left for the developer to customize window content. */
+      .mqabasicwnd-content {
+          font-size: 13px;
+          font-weight: bold;
+          white-space: nowrap;
+      }
+  </style>
+
+
+        <div id="map" style="width:600px; height:500px; margin:10px;"></div>
+        <div id="route-results" style="margin:10px;"></div>
+

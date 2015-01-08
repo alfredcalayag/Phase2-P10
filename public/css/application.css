@@ -1,0 +1,231 @@
+
+
+body{
+  display:block;
+  min-height: 100px;
+  width: 100%;
+  left:0;
+  right:0;
+
+  margin:0;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-right: 6%;
+
+  color:white;
+  background: navy;
+}
+
+/*--------HEADER-------------*/
+header{
+  min-height: 50px;
+  top:0;
+  width: 100%;
+  position:fixed;
+
+  background: #000;
+
+}
+
+/*----------MAIN------------------*/
+
+main {
+  display:block;
+  clear: both;
+
+  margin-top: 30px;
+  padding: 20px 20px;
+
+
+  min-height: 200px;
+  width: 100%;
+
+
+  background-color: #8DBFA6;
+}
+
+
+/*a{
+  text-decoration: none;
+  color: white;
+}*/
+
+/* ====== FORM =======*/
+form{
+  margin: 0 auto;
+  padding: 10px;
+  width: 500px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-box-shadow: 5px 5px 20px #000;
+
+  background: #236167;
+/*compliment color: AA6E39*/
+
+  font-size: 16px;
+}
+
+form fieldset{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  vertical-align: top;
+
+  border-top: 2px solid #00282C;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+form label{
+  display: block;
+  margin: 5px 0;
+}
+
+
+/*form title*/
+form h1{
+  text-align: center;
+  text-shadow: 2px 2px 10px #000;
+}
+
+form fieldset h2, form fieldset h4, form fieldset input {
+  margin-left: 50px;
+  text-align: left;
+}
+
+
+form input{
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  height: 30px;
+
+  padding-left: 10px;
+
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: navy;
+}
+
+/*Italicize placeholder text on input fields*/
+::-webkit-input-placeholder{
+  font-style:italic;
+}
+
+/*Styling for focus on input fields*/
+input[type="text"]:focus, input[type="datetime-local"]:focus, input[type="time"]:focus{
+  box-shadow: 0 0 50px #fff;
+  outline: none; /*removes default focus outline */
+}
+
+.remind-me {
+  vertical-align: middle;
+}
+
+.remind-me h2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+}
+
+.remind-me input[type="radio"]{
+  vertical-align: middle;
+}
+
+input[type="submit"]{
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom:15px;
+
+  background: #aa6e39;
+
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*=========View Trips===============*/
+
+.trip_details{
+  display: block;
+  width: 80%;
+  background: black;
+}
+
+.trip_details h3{
+  text-align: center;
+}
+
+.trip_details input[type="button"]{
+  background-color: orange;
+  display: block;
+  margin: 10px auto;
+}
+
+
+ /*Mobile Devices ==============
+
+/*@media (max-width: 420px){
+
+  body{
+    background:navy;
+  }
+
+  .container {
+    min-height: 100px;
+    width: 100%;
+  }
+  section, aside {
+    float: none;
+    width: 80%;
+  }
+
+}*/
+
+/*=====USER MENU=======*/
+.choice{
+  display: block;
+  margin: 20px auto;
+  background: #236167;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 20px #000;
+
+  width: 300px;
+  height: 100px;
+  border: 2px solid black;
+
+  /*margin-bottom: 20px;*/
+    transition: transform;
+    /*transition-duration: 0.5s;*/
+    /*transition-timing-function: ease;*/
+}
+
+.choice:hover{
+  /*opacity: 0.7;*/
+  box-shadow: none;
+  transform: translate(5px, 5px);
+
+}
+
+.choice h1{
+  text-align: center;
+  text-shadow: 2px 2px 10px #000;
+  margin: 5px;
+}
+
+/* MAPQUEST */
+.mqabasicwnd-content {
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+}
