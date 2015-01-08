@@ -1,7 +1,7 @@
 
     <main>
 
-    <form class="tripform" action="/trips" method="post">
+    <form class="tripform" action="/users/<%= @user_id %>/trips" method="post">
       <h1>Create a New Trip Reminder</h1>
 
       <fieldset class="trip_name">
@@ -30,7 +30,6 @@
         <input type="radio" name="reminder_minutes" value="30"> 30min
       </fieldset>
 
-      <input type="hidden" name="user_id" value="1">
 
       <input type="submit" value="Create">
 
