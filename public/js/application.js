@@ -18,8 +18,6 @@ $sendButton.on("click", "input[type='button']", function(event){
 
 
     var revealMap = function(){
-        // $('.map_container').css("z-index", "99999")
-
         $('.map_container').css("opacity", "1.0")
         $('.map_container').css("display", "block")
     }
@@ -28,8 +26,6 @@ $sendButton.on("click", "input[type='button']", function(event){
     dfd.done( getMap(origin, destination) )
     .done( darkenPage() )
     .done( revealMap() )
-
-    // getMap(origin, destination);
 })
 
 
@@ -99,9 +95,6 @@ var getMap = function(myOrigin, myDestination){
             }
 
             map.addRoute(opt);
-
-            // map.addControl(new MQA.SmallZoom());
-            // map.enableMouseWheelZoom();
             map.bestFit();
         });
 
@@ -124,21 +117,3 @@ var ajaxSendRequest = function(timeWithoutTraffic, timeWithTraffic, origin, dest
 
 
 });
-
-// Mapquest Test only ============
-  // var $sendTextButton = $("button")
-  // $sendTextButton.on("click", function(event) {
-  //   event.preventDefault()
-  //   console.log(timeWithTraffic)
-  //   console.log(timeWithoutTraffic)
-
-  //   $.ajax({
-  //   url: "/test",
-  //   type: "POST",
-  //   data: $('form').serialize() + "&time=" + timeWithoutTraffic + "&timeWithTraffic=" + timeWithTraffic
-  //   }).done(function(data){
-  //     console.log('Check your phone')
-  //   })
-  // })
-// ======================
-
