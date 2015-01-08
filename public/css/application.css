@@ -180,8 +180,11 @@ input[type="submit"]{
 }
 
 .trip_details:hover{
-  transition-property: ;
-  transform:transl;
+  box-shadow: 3px 3px 20px #000;
+  background: #742424;
+
+  transition-property: height, width, background;
+  transform:translate(5px, 5px);
   }
 
 .trip_details h3{
@@ -270,9 +273,17 @@ input[type="submit"]{
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  box-shadow: 5px 5px 20px #000;
+  box-shadow: 0 0 30px #000;
 
+  transition-timing-function: ease;
+  transition-duration: 1s;
 }
+
+.map_container:hover {
+  transition-property: all;
+  transform: scale(1.4);
+}
+
 
 #map {
   display: block;
