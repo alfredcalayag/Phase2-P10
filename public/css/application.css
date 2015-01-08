@@ -108,7 +108,7 @@ form input{
 
   padding-left: 10px;
 
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: navy;
 }
@@ -119,9 +119,9 @@ form input{
 }
 
 /*Styling for focus on input fields*/
-input[type="text"]:focus, input[type="datetime-local"]:focus, input[type="time"]:focus{
-  box-shadow: 0 0 50px #fff;
-  outline: none; /*removes default focus outline */
+input[type="text"]:focus, input[type="datetime-local"]:focus, input[type="time"]:focus, input[type="password"]:focus, input[type="submit"]:focus{
+  box-shadow: 0 0 60px #fff;
+  outline: none; /*removes default focus outline*/
 }
 
 .remind-me {
