@@ -36,6 +36,13 @@ $mapRemove.on("click", function(){
 })
 
 
+var $mapRemove2 = $('#dark_page')
+$mapRemove2.on("click", function(){
+    $('.map_container').css("display", "none");
+    lightenPage()
+})
+
+
 var getMap = function(myOrigin, myDestination){
     console.log('Wabbit')
     // testing this line
