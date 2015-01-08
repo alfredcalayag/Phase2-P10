@@ -13,7 +13,7 @@ body{
   padding-right: 6%;
 
   color:white;
-  background: navy;
+  background: #fff;
 }
 
 /*--------HEADER-------------*/
@@ -228,4 +228,33 @@ input[type="submit"]{
     font-size: 13px;
     font-weight: bold;
     white-space: nowrap;
+}
+
+.map_container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*padding: 30px;*/
+  background: white;
+  width: 430px;
+  height: 430px;
+  padding-top: 1px;
+
+  border: 1px solid #000;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 20px #000;
+
+}
+
+#map {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+
+  width: 410px;
+  height: 410px;
 }

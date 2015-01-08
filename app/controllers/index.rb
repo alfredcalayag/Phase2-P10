@@ -10,7 +10,7 @@ get '/getkey' do
   {scriptUrl: myUrl}.to_json
 end
 
-get '/trips' do
+get '/users' do
   @trips = Trip.all
   erb :index
 end
