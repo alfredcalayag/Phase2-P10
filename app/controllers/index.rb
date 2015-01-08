@@ -17,7 +17,6 @@ post '/trips' do
   depart_time = DateTime.parse(params[:depart_time])
   reminder_time = depart_time - reminder_minutes.minutes
 
-
   new_trip_data = {
     trip_name: params[:trip_name],
     origin: params[:origin],
@@ -33,29 +32,15 @@ end
 
 
 
-post '/send' do
-  phone_number = ENV['MY_PHONE']
-  message = params[:message]
-  sendtext(phone_number, message)
-  p "Message sent to #{phone_number}"
-end
 
-post '/test' do
-  p "Got an ajax"
-  phone_number = ENV['MY_PHONE']
-  time = params[:time]
-  timeWithTraffic = params[:timeWithTraffic]
-  origin = params[:origin]
-  destination = params[:destination]
-  message = "Leaving now from #{origin} to #{destination}? Estimated time is #{time} min without traffic. Currently, with traffic it will take #{timeWithTraffic} min."
-  sendtext(phone_number, message)
-  p "Message sent to #{phone_number}"
-
-  content_type :json
-  {time: time, timeWithTraffic: timeWithTraffic, origin: origin, destination: destination}.to_json
-end
 
 # Consider scrapping:
+# post '/send' do
+#   phone_number = ENV['MY_PHONE']
+#   message = params[:message]
+#   sendtext(phone_number, message)
+#   p "Message sent to #{phone_number}"
+# end
 
 # get '/getkey' do
 #   key = ENV['MAPQUEST_KEY']
