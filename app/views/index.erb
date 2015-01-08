@@ -3,8 +3,6 @@
 
 
 
-<div id="dark_page"></div>
-
 <main>
   <% if @trips %>
   <h1> All Trips </h2>
@@ -25,16 +23,27 @@
 </main>
 
 
-<!-- LOAD MAPQUEST API <script src=mapquestKey></script> -->
+<!-- LOAD MAPQUEST API and helper script -->
 
   <script src="http://www.mapquestapi.com/sdk/js/v7.2.s/mqa.toolkit.js?key=Fmjtd%7Cluurn10y29%2C72%3Do5-9wywgf"></script>
 
+
   <script src="/js/initialize_mapquest_sdk.js"></script>
 
-<!-- Generate Map and Travel Time -->
 
+<!-- Hidden until map is requested -->
+<div id="dark_page"></div>
 
+<!-- Generate Map and Travel Time.  Hidden until requested -->
 <div class="map_container">
     <div id="map"></div>
     <div id="route-results"></div>
+
+    <div id="no_traffic"></div>
+    <div id="traffic"></div>
+
+    <div id="address"></div>
+
 </div>
+
+

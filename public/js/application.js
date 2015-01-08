@@ -84,13 +84,15 @@ var getMap = function(myOrigin, myDestination){
                     if (data.route) {
                         html='';
 
+// TODO: Move converter logic to controller
                         timeWithTraffic = (Math.ceil(parseInt(data.route.realTime) / 60)).toString();
                         timeWithoutTraffic = (Math.ceil(parseInt(data.route.time) / 60)).toString();
 
-
-                        html += '<h2>Time w/out Traffic:' + timeWithoutTraffic + ' minutes</h2>';
-                        html += '<h2>Time w/ Traffic:' + timeWithTraffic + ' minutes</h2>';
-                        html += '<table><tbody>';
+// ======= Possibly remove ========
+                        // html += '<div id="no_traffic"><h3>Time w/out Traffic:' + timeWithoutTraffic + ' minutes</h3></div>';
+                        // html += '<div id="traffic"><h3>Time w/ Traffic:' + timeWithTraffic + ' minutes</h3></div>';
+                        // html += '<table><tbody>';
+// ================================
 
                         ajaxSendRequest(timeWithoutTraffic, timeWithTraffic, myOrigin, myDestination)
 
@@ -119,6 +121,10 @@ var ajaxSendRequest = function(timeWithoutTraffic, timeWithTraffic, origin, dest
         + "&destination=" + destination
     }).done(function(data){
       console.log('Check your phone')
+      // console.log(data["time"])
+      $('#no_traffic').html("<h2> No Traffic: " + data["time"] + " min</h2>")
+      $('#traffic').html("<h2> With Traffic: " + data["timeWithTraffic"] + " min</h2>")
+      $('#address').html("<h2>Your trip from <span id='start_point'>" + data["origin"] + "</span> to <span id='start_point'>" + data["destination"] + "</span>.")
     })
 }
 

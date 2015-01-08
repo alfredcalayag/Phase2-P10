@@ -8,7 +8,7 @@ var loadInitialMap = function(){
       var options = {
         elt: document.getElementById('map'),           // ID of map element on page
         zoom: 10,                                      // initial zoom level of the map
-        latLng: { lat: 39.743943, lng: -105.020089 },  // center of map in latitude/longitude
+        latLng: { lat: 37.7577, lng: -122.4376 },  // center of map in latitude/longitude
         mtype: 'map',                                  // map type (map, sat, hyb); defaults to map
         bestFitMargin: 0,                              // margin offset from map viewport when applying a bestfit on shapes
         zoomOnDoubleClick: true                        // enable map to be zoomed in when double-clicking on map

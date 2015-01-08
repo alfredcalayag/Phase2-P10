@@ -51,6 +51,8 @@ post '/test' do
   sendtext(phone_number, message)
   p "Message sent to #{phone_number}"
 
+  content_type :json
+  {time: time, timeWithTraffic: timeWithTraffic, origin: origin, destination: destination}.to_json
 end
 
 # Consider scrapping:
