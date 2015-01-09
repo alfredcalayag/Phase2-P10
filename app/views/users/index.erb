@@ -2,17 +2,23 @@
 <!-- view all trips of a user -->
 
 <main>
+
+
   <div id="welcome_message">
     <h1>Welcome <%= @user.username %> !</h1>
   </div>
   <div id="user_id"><%= @user_id %></div>
   <div id="user_name"><%= @user.username %></div>
 
+  <!-- <form class=""> -->
+  <input class="create_button" type="button" value="Create a Reminder">
+  <!-- </form> -->
+
   <% if @trips %>
-  <h1> All Trips </h2>
+  <h1> Your Trip Reminders </h2>
     <% @trips.each do |trip| %>
       <div class="trip_details">
-        <h3> Trip Name: <%= trip.trip_name %> </h3>
+        <h3> Trip Name: <span class="name_value"> <%= trip.trip_name %> </span></h3>
         <h4> Origin: <span class="origin"><%= trip.origin %></span></h4>
         <h4> Destination: <span class="destination"><%= trip.destination %></span></h4>
         <h4> Departure Date & Time: <%= trip.depart_time %> </h4>
@@ -24,6 +30,18 @@
   <% else %>
     <h1> Something went wrong </h1>
   <% end %>
+
+
+      <div class="trip_template">
+        <h3 class="name_value"></h3>
+        <h4 class="origin"></h4>
+        <h4 class="destination"></h4>
+        <h4 class="departure"></h4>
+        <h4 class="reminder"></h4>
+        <h4 class="minutes"></h4>
+        <input type="button" value="Click to send text now">
+      </div>
+
 </main>
 
 
@@ -50,4 +68,39 @@
 
 </div>
 
+<!--  -->
 
+<form class="tripform" action="/users/<%= @user_id %>/trips2" method="post">
+      <h1>Create a New Trip Reminder</h1>
+
+      <fieldset class="trip_name">
+          <h2>Trip Name</h2>
+          <input type="text" size="40" name="trip_name" placeholder="i.e. Morning Commute" autofocus required>
+      </fieldset>
+
+      <fieldset class="location">
+          <h2>Starting Address</h2>
+          <input type="text" size="40" name="origin" placeholder="i.e. Home Address" required>
+
+          <h2>Destination</h2>
+          <input type="text" size="40" name="destination" placeholder="i.e. 633 Folsom St., San Francisco, CA" required>
+      </fieldset>
+
+      <fieldset>
+          <h2>Departure Date & Time</h2>
+          <input type="datetime-local" name="depart_time" required>
+      </fieldset>
+
+      <fieldset class="remind-me">
+        <h2>Remind Me </h2>
+        <input type="radio" name="reminder_minutes" value="5" required> 5min
+        <input type="radio" name="reminder_minutes" value="10"> 10min
+        <input type="radio" name="reminder_minutes" value="15"> 15min
+        <input type="radio" name="reminder_minutes" value="30"> 30min
+      </fieldset>
+
+
+      <input class="submit_form" type="submit" value="Create">
+
+    </form>
+<!--  -->

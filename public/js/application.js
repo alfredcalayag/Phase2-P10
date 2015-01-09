@@ -12,6 +12,69 @@ var lightenPage = function(){
     $('#dark_page').css("display", "none");
 }
 
+var $createButton = $('.create_button')
+$createButton.on("click", function(event){
+    event.preventDefault()
+    console.log("create!")
+    darkenPage()
+    $('form').css("display", "block")
+})
+
+// var newTrip = function(){
+//     this.trip_details = $('.trip_template')
+// }
+
+var $submitFormButton = $('.submit_form')
+$submitFormButton.on("click", function(event){
+    event.preventDefault()
+
+    $.ajax({
+        url: "/users/" + userId + "/trips2",
+        type: "POST",
+        data: $('form').serialize()
+    }).done(function(data){
+        console.log(data)
+        var $newTrip = $('.trip_template')
+        $newTrip.find(".name_value").text("Trip Name: " + data["trip_name"])
+        $newTrip.find(".origin").text("Origin: " + data["origin"])
+        $newTrip.find(".destination").text("Destination: " + data["destination"])
+        $newTrip.find(".departure").text("Departure Date & Time: " + data["depart_time"])
+        $newTrip.find(".reminder").text("Text will be sent at: " + data["reminder_time"])
+        $newTrip.find(".minutes").text(" Reminder set to: " + data["reminder_minutes"] + " minutes prior to departure")
+        $newTrip.removeClass('trip_template')
+        $newTrip.addClass('trip_details')
+        $newTrip.find("input").on("click", function(event){
+            event.preventDefault();
+            origin = $(this).parent().find($('.origin')).text();
+            destination = $(this).parent().find($('.destination')).text()
+            console.log(origin)
+            console.log(destination)
+
+
+            var revealMap = function(){
+                $('.map_container').css("opacity", "1.0")
+                $('.map_container').css("display", "block")
+            }
+
+            var dfd = $.Deferred();
+            dfd.done( getMap(origin, destination) )
+            .done( darkenPage() )
+            .done( revealMap() )
+        })
+
+
+
+        $('main').append($newTrip)
+        $('form').css("display", "none")
+        lightenPage()
+    })
+
+    // when done add
+    // $('main').append(new trip)
+    // $('.form').css("display", "none")
+    // lightenPage()
+})
+
 var $sendButton = $('.trip_details')
 $sendButton.on("click", "input[type='button']", function(event){
     event.preventDefault();
