@@ -68,7 +68,6 @@ var getMap = function(myOrigin, myDestination){
                         generalize: 0,
                         routeType: 'fastest',
                         timeType: 1,
-                        //useTraffic: true,
                         locale: 'en_US',
                         unit: 'm',
                         enhancedNarrative: false,
@@ -92,17 +91,10 @@ var getMap = function(myOrigin, myDestination){
                         timeWithTraffic = (Math.ceil(parseInt(data.route.realTime) / 60)).toString();
                         timeWithoutTraffic = (Math.ceil(parseInt(data.route.time) / 60)).toString();
 
-// ======= Possibly remove ========
-                        // html += '<div id="no_traffic"><h3>Time w/out Traffic:' + timeWithoutTraffic + ' minutes</h3></div>';
-                        // html += '<div id="traffic"><h3>Time w/ Traffic:' + timeWithTraffic + ' minutes</h3></div>';
-                        // html += '<table><tbody>';
-// ================================
-
                         ajaxSendRequest(timeWithoutTraffic, timeWithTraffic, myOrigin, myDestination)
 
                         html += '</tbody></table>';
                         document.getElementById('route-results').innerHTML = html;
-                        // $('#route-results').html(html);
                     }
                 }
             }
@@ -114,6 +106,10 @@ var getMap = function(myOrigin, myDestination){
     };
 
 
+var timeTemplate = function(data){
+    travelTime = "<h2>" + data["trafficCondition"] + ": " + data["time"] + " minutes</h2>";
+    return travelTime;
+}
 
 var ajaxSendRequest = function(timeWithoutTraffic, timeWithTraffic, origin, destination){
     console.log("Origin: " + origin + ", Destination: " + destination)
@@ -127,7 +123,11 @@ var ajaxSendRequest = function(timeWithoutTraffic, timeWithTraffic, origin, dest
     }).done(function(data){
       console.log('Check your phone')
       // console.log(data["time"])
-      $('#no_traffic').html("<h2> No Traffic: " + data["time"] + " min</h2>")
+      // $('#no_traffic').html("<h2> No Traffic: " + data["time"] + " min</h2>")
+      $('#no_traffic').html(timeTemplate(
+        {   trafficCondition: "No Traffic",
+            time: data["time"]
+        }))
       $('#traffic').html("<h2> With Traffic: " + data["timeWithTraffic"] + " min</h2>")
       $('#address').html("<h2>Your trip from <span id='start_point'>" + data["origin"] + "</span> to <span id='start_point'>" + data["destination"] + "</span>.")
     })
