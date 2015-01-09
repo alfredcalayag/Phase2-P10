@@ -32,3 +32,9 @@ gem 'twilio-ruby'
 gem 'geocoder'
 
 gem 'dotenv'
+
+gem 'sidekiq', '~> 2.17.0'
+
+gem 'clockwork'
+
+gem 'redis'

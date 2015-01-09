@@ -1,4 +1,4 @@
-p "Running the helper file"
+# p "Running the helper file"
 
 
 def sumpin_helper
