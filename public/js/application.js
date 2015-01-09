@@ -122,13 +122,17 @@ var ajaxSendRequest = function(timeWithoutTraffic, timeWithTraffic, origin, dest
         + "&destination=" + destination
     }).done(function(data){
       console.log('Check your phone')
-      // console.log(data["time"])
-      // $('#no_traffic').html("<h2> No Traffic: " + data["time"] + " min</h2>")
+
       $('#no_traffic').html(timeTemplate(
         {   trafficCondition: "No Traffic",
             time: data["time"]
         }))
-      $('#traffic').html("<h2> With Traffic: " + data["timeWithTraffic"] + " min</h2>")
+
+      $('#traffic').html(timeTemplate(
+        {   trafficCondition: "In Traffic",
+            time: data["timeWithTraffic"]
+        }))
+
       $('#address').html("<h2>Your trip from <span id='start_point'>" + data["origin"] + "</span> to <span id='start_point'>" + data["destination"] + "</span>.")
     })
 }
