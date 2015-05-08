@@ -1,0 +1,449 @@
+
+body{
+  display:block;
+  min-height: 100px;
+  width: 100%;
+  left:0;
+  right:0;
+
+  margin:0;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-right: 6%;
+
+  color:white;
+  background: #fff;
+}
+
+/*--------HEADER-------------*/
+header{
+  min-height: 50px;
+  top:0;
+  width: 100%;
+  position:fixed;
+
+  background: #000;
+
+}
+
+/*----------MAIN------------------*/
+
+main {
+  display:block;
+  clear: both;
+
+  margin-top: 30px;
+  padding: 20px 20px;
+
+
+  min-height: 200px;
+  width: 100%;
+
+
+  /*background-color: #8DBFA6;*/
+  /*background: white;*/
+  background: radial-gradient(circle, #fff, #67989A);
+}
+
+main h1{
+  text-shadow: 2px 2px 10px #000;
+
+}
+
+/*a{
+  text-decoration: none;
+  color: white;
+}*/
+
+/* ====== FORM =======*/
+form{
+  display: none;
+  position: fixed;
+  z-index: 9999;
+
+  top: -7%;
+  left: 17%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 10px;
+  width: 500px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-box-shadow: 5px 5px 20px #000;
+
+  background: #236167;
+/*compliment color: AA6E39*/
+
+  font-size: 16px;
+
+  transform: scale(0.8);
+}
+
+form fieldset{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  vertical-align: top;
+
+  border-top: 2px solid #00282C;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+form label{
+  display: block;
+  margin: 5px 0;
+}
+
+
+/*form title*/
+form h1{
+  text-align: center;
+  text-shadow: 2px 2px 10px #000;
+}
+
+form fieldset h2, form fieldset h4, form fieldset input {
+  margin-left: 50px;
+  text-align: left;
+}
+
+
+form input{
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  height: 30px;
+
+  padding-left: 10px;
+
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: navy;
+}
+
+/*Italicize placeholder text on input fields*/
+::-webkit-input-placeholder{
+  font-style:italic;
+}
+
+/*Styling for focus on input fields*/
+input[type="text"]:focus, input[type="datetime-local"]:focus, input[type="time"]:focus, input[type="password"]:focus, input[type="submit"]:focus{
+  box-shadow: 0 0 60px #fff;
+  outline: none; /*removes default focus outline*/
+}
+
+.remind-me {
+  vertical-align: middle;
+}
+
+.remind-me h2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+}
+
+.remind-me input[type="radio"]{
+  vertical-align: middle;
+}
+
+input[type="submit"]{
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom:15px;
+
+  background: #aa6e39;
+
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/*======Button=======*/
+.create_button{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: black;
+  font-size: 20px;
+  background-color: #fff;
+  display: block;
+  height: 200px;
+  width: 200px;
+  margin: 10px auto;
+
+/*  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;*/
+  border-radius: 100%;
+  box-shadow: 0 0 30px #000;
+
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in;
+}
+
+.create_button:hover{
+  box-shadow: 0 0 15px #000;
+  /*background: #742424;*/
+
+  transition-property: height, width, background;
+  transform:translate(0px, 10px);
+}
+
+/*=========View Trips===============*/
+
+.trip_details{
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 5px;
+
+/*  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+*/
+  margin: 20px;
+
+  width: 250px;
+  min-height: 400px;
+  /*background: #aa6e39;*/
+  background: #003133;
+
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 20px #000;
+
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in;
+}
+
+.trip_details:hover{
+  box-shadow: 2px 2px 20px #000;
+  /*background: #236167;*/
+  background: #0F434F;
+  /*color: #000;*/
+
+  transition-property: height, width, background;
+  transform:translate(7px, 7px);
+}
+
+
+
+.trip_details h3{
+  text-align: center;
+  color: #fff;
+}
+
+.trip_details input[type="button"]{
+  background-color: #0D4A4D;
+  display: block;
+  margin: 10px auto;
+}
+
+/*====Trip Template*/
+.trip_template{
+  display:none;
+}
+
+/*===== USER INFO ==============*/
+
+#user_id, #user_name{
+  display:none;
+}
+
+
+ /*Mobile Devices ==============
+
+/*@media (max-width: 420px){
+
+  body{
+    background:navy;
+  }
+
+  .container {
+    min-height: 100px;
+    width: 100%;
+  }
+  section, aside {
+    float: none;
+    width: 80%;
+  }
+
+}*/
+
+/*=====USER MENU=======*/
+.choice{
+  display: block;
+  margin: 20px auto;
+  background: #236167;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 20px #000;
+
+  width: 300px;
+  height: 100px;
+  border: 2px solid black;
+
+  /*margin-bottom: 20px;*/
+    transition: transform;
+    /*transition-duration: 0.5s;*/
+    /*transition-timing-function: ease;*/
+}
+
+.choice:hover{
+  /*opacity: 0.7;*/
+  box-shadow: none;
+  transform: translate(5px, 5px);
+
+}
+
+.choice h1{
+  text-align: center;
+  text-shadow: 2px 2px 10px #000;
+  margin: 5px;
+}
+
+/* MAPQUEST */
+.mqabasicwnd-content {
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+
+    border: 2px solid black;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.map_container {
+  /*display: block;*/
+  display: none;
+  position: fixed;
+  z-index: 9999;
+
+  top: 30%;
+  left: 33%;
+
+  margin-left: auto;
+  margin-right: auto;
+  /*padding: 30px;*/
+  background: white;
+  width: 350px;
+  height: 350px;
+  padding-top: 1px;
+
+  border: 1px solid #000;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 0 40px #000;
+
+  transition-timing-function: ease;
+  transition-duration: 1s;
+}
+
+.map_container:hover {
+  transition-property: all;
+  transform: scale(1.3);
+}
+
+
+/*.map_container:active{
+  transition-property: display;
+  display: none;
+}*/
+
+#map {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+
+  width: 330px;
+  height: 330px;
+}
+
+#no_traffic, #traffic, #address {
+  display: block;
+  position: absolute;
+  min-width: 250px;
+  text-align: center;
+}
+
+#address {
+  min-width: 600px;
+}
+
+#no_traffic {
+  top: 120px;
+  left: 375px;
+}
+
+#traffic {
+  top: 170px;
+  left: 375px;
+}
+
+#address {
+  top: -95px;
+  left: -30%;
+}
+
+#no_traffic, #traffic, #address {
+  font-family: Arial;
+  text-shadow: 2px 2px 10px #000;
+  text-align: center;
+}
+
+#no_traffic {
+  color: #22EB10;
+}
+
+#traffic {
+  color: #E30000;
+}
+
+#address {
+  color: #fff;
+}
+
+#start_point {
+  color: yellow;
+}
+
+#end_point {
+  color: blue;
+}
+
+/* Transitions and Animations*/
+#dark_page {
+  display:none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background: black;
+  opacity: 0.7;
+}
+
+#dark_page:hover + .map_container {
+  transition-property: all;
+  transform: scale(1.3);
+}

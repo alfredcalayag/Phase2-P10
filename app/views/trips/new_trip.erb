@@ -1,0 +1,41 @@
+
+    <main>
+
+    <form class="tripform" action="/users/<%= @user_id %>/trips" method="post">
+      <h1>Create a New Trip Reminder</h1>
+
+      <fieldset class="trip_name">
+          <h2>Trip Name</h2>
+          <input type="text" size="40" name="trip_name" placeholder="i.e. Morning Commute" autofocus required>
+      </fieldset>
+
+      <fieldset class="location">
+          <h2>Starting Address</h2>
+          <input type="text" size="40" name="origin" placeholder="i.e. Home Address" required>
+
+          <h2>Destination</h2>
+          <input type="text" size="40" name="destination" placeholder="i.e. 633 Folsom St., San Francisco, CA" required>
+      </fieldset>
+
+      <fieldset>
+          <h2>Departure Date & Time</h2>
+          <input type="datetime-local" name="depart_time" required>
+      </fieldset>
+
+      <fieldset class="remind-me">
+        <h2>Remind Me </h2>
+        <input type="radio" name="reminder_minutes" value="5" required> 5min
+        <input type="radio" name="reminder_minutes" value="10"> 10min
+        <input type="radio" name="reminder_minutes" value="15"> 15min
+        <input type="radio" name="reminder_minutes" value="30"> 30min
+      </fieldset>
+
+
+      <input type="submit" value="Create">
+
+    </form>
+
+
+    </main>
+
+    </body>
