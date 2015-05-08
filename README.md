@@ -1,30 +1,23 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+## A-to-B
+Receive scheduled text messages of the driving traffic conditions to your POI before your departure
 
-### Purpose
-The Sinatra Skeleton:
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+###How it works
+Fill out a form asking for your starting address and ending address, time of departure, and cell phone number.  A new entry will be created in the database with this information.
 
-### Quickstart
+(Eventually) You would receive a text message x minutes prior to your scheduled departure time notifying you of the traffic conditions on your route.  All clear, wait it out and make better use of your time, or do you enjoy jamming to the radiou while sitting in traffic?
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+Currently, the background jobs have not been completed yet. Instead of a scheduled operation, you will need to click the "Test" button which triggers the map and text features.
 
-As needed, create models & migrations with the `rake` tasks:
+###Usage
+A-to-B is still in development and is a work-in-progress and has only reached its conceptual stages. This is a student project to test out something I thought was useful and likely will not be deployed.  For the text message feature to work, I'm using a free Twilio developer account which only allows me to send sample text messages to my phone number only.  To expand this to allow just anyone to use would require a subscription for that support.
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+###Technologies
 
-### Contributing
-
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
-
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
-
-Be prepared to give and receive specific, actionable, and kind feedback!
+- Sinatra: Ruby framework
+- Postgres: Database
+- Javascript: Loading the Mapquest Toolkit, AJAX to retrieve traffic and map data
+- HTML/CSS: Front-end design
+- Twilio API: SMS messaging
+- MapQuest API: Traffic data
+- (Under experimentation)Sidekiq + Redis: Background jobs
